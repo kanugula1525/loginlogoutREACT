@@ -2,6 +2,6 @@
 
 import './index.css'
 
-export const logInMessage = <h1 className="message">Please Login </h1>
+export const LogInMessage = () => <h1 className="message">Please Login </h1>
 
-export const welcomeMessage = <h1 className="message">Welcome User</h1>
+export const WelcomeMessage = () => <h1 className="message">Welcome User</h1>

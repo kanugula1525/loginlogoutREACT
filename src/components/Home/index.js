@@ -3,24 +3,31 @@ import {Component} from 'react'
 
 import './index.css'
 import LogInButton from '../Login/index'
+import LogOutButton from '../Logout'
+import {LogInMessage, WelcomeMessage} from '../Message/index'
 
 class Home extends Component {
   state = {loginStatus: false}
 
   onLogin = () => {
-    const {loginStatus} = this.state
     this.setState(() => ({loginStatus: true}))
-    console.log(loginStatus)
+  }
+
+  onLogOut = () => {
+    this.setState(() => ({loginStatus: false}))
   }
 
   render() {
     const {loginStatus} = this.state
-    console.log(loginStatus)
     return (
       <div className="homeContainer">
         <div className="MiniContainer">
-          <h1>ok</h1>
-          {loginStatus ? null : <LogInButton />}
+          {loginStatus ? <WelcomeMessage /> : <LogInMessage />}
+          {loginStatus ? (
+            <LogOutButton onLogOut={this.onLogOut} />
+          ) : (
+            <LogInButton onLogin={this.onLogin} />
+          )}
         </div>
       </div>
     )

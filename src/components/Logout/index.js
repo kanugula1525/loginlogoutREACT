@@ -1,16 +1,18 @@
 // Write your code here
 import './index.css'
 
-import {Component} from 'react'
+const LogOutButton = props => {
+  const {onLogOut} = props
 
-class LogOutButton extends Component {
-  render() {
-    return (
-      <button className="logoutButton" onClick={this.onLogout} type="button">
-        Logout
-      </button>
-    )
+  const onLogOutUser = () => {
+    onLogOut()
   }
+
+  return (
+    <button onClick={onLogOutUser} className="logoutButton" type="button">
+      Logout
+    </button>
+  )
 }
 
 export default LogOutButton
